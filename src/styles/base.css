@@ -1,0 +1,288 @@
+/* ==========================================================================
+   FOUNDERY927 — Base Styles & Design Tokens
+   The foundation layer: reset, custom properties, and global defaults.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CSS Reset — Modern, minimal, opinion-light
+   -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+/* --------------------------------------------------------------------------
+   Design Tokens — Single source of truth
+   -------------------------------------------------------------------------- */
+
+:root {
+  /* ---- Colors ---- */
+  --color-bg:            #050505;
+  --color-bg-alt:        #0A0A0A;
+  --color-bg-elevated:   #111111;
+  --color-bg-card:       #141414;
+  --color-bg-card-hover: #1A1A1A;
+  --color-text:          #F4EADE;
+  --color-text-muted:    #888888;
+  --color-text-subtle:   #555555;
+  --color-accent:        #C8FF00;
+  --color-accent-hover:  #DEFF66;
+  --color-accent-dark:   #9ACC00;
+  --color-border:        rgba(255, 255, 255, 0.08);
+  --color-border-hover:  rgba(255, 255, 255, 0.15);
+  --color-white:         #FFFFFF;
+  --color-error:         #FF4444;
+  --color-success:       #00CC88;
+
+  /* ---- Typography ---- */
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  --text-hero:     clamp(48px, 10vw, 140px);
+  --text-display:  clamp(36px, 6vw, 96px);
+  --text-h1:       clamp(32px, 5vw, 72px);
+  --text-h2:       clamp(28px, 4vw, 56px);
+  --text-h3:       clamp(24px, 3vw, 40px);
+  --text-h4:       clamp(20px, 2vw, 32px);
+  --text-body:     clamp(16px, 1.2vw, 20px);
+  --text-body-sm:  clamp(14px, 1vw, 18px);
+  --text-small:    clamp(13px, 1vw, 16px);
+  --text-xs:       clamp(11px, 0.8vw, 14px);
+  --text-label:    clamp(10px, 0.7vw, 12px);
+
+  /* ---- Spacing ---- */
+  --space-2xs:     clamp(4px, 0.5vw, 8px);
+  --space-xs:      clamp(8px, 1vw, 16px);
+  --space-s:       clamp(16px, 2vw, 24px);
+  --space-m:       clamp(24px, 3vw, 40px);
+  --space-l:       clamp(40px, 5vw, 64px);
+  --space-xl:      clamp(64px, 8vw, 120px);
+  --space-2xl:     clamp(96px, 12vw, 180px);
+  --space-3xl:     clamp(120px, 15vw, 240px);
+  --space-section: clamp(120px, 15vw, 240px);
+
+  /* ---- Easing ---- */
+  --ease-out-expo:       cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart:      cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-quart:   cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-smooth:         cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---- Z-Index ---- */
+  --z-cursor:     9999;
+  --z-preloader:  9998;
+  --z-nav:        9000;
+  --z-modal:      8000;
+  --z-overlay:    7000;
+
+  /* ---- Grid ---- */
+  --grid-gap:     clamp(16px, 2vw, 32px);
+  --grid-columns: 12;
+}
+
+/* --------------------------------------------------------------------------
+   Global Defaults — html & body
+   -------------------------------------------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Lenis Smooth Scroll Overrides
+   -------------------------------------------------------------------------- */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Selection
+   -------------------------------------------------------------------------- */
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+::-moz-selection {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* --------------------------------------------------------------------------
+   Scrollbar
+   -------------------------------------------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-dark);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent-dark) var(--color-bg);
+}
+
+/* --------------------------------------------------------------------------
+   Media Defaults
+   -------------------------------------------------------------------------- */
+
+img,
+picture,
+video {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+img {
+  font-style: italic;            /* alt text styling */
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   Link Defaults
+   -------------------------------------------------------------------------- */
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   Button Defaults
+   -------------------------------------------------------------------------- */
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   Focus Visible — Accessible but non-intrusive
+   -------------------------------------------------------------------------- */
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   Utility: No Scroll
+   -------------------------------------------------------------------------- */
+
+.no-scroll {
+  overflow: hidden !important;
+}
+
+/* --------------------------------------------------------------------------
+   Screen Reader Only
+   -------------------------------------------------------------------------- */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

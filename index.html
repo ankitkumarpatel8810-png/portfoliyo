@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    window.onerror = function(msg, url, line, col, error) {
+      alert("Runtime Error:\nMessage: " + msg + "\nURL: " + url + "\nLine: " + line + "\nCol: " + col);
+      return false;
+    };
+    window.addEventListener('unhandledrejection', function(event) {
+      alert("Unhandled Promise Rejection:\nReason: " + event.reason);
+    });
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOUNDERY927 — Sunanda Jayaseelan</title>
+  <meta name="description" content="Storytelling, Narration, Executive Media Coaching & Prime Time TV Journalism by Sunanda Jayaseelan.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Google Fonts: Preconnect + Load -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main JS (ES Module — Vite handles bundling) -->
+  <script type="module" src="/src/js/main.js"></script>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       CUSTOM CURSOR
+  ════════════════════════════════════════════ -->
+  <div class="cursor">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       PRELOADER
+  ════════════════════════════════════════════ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__logo">FOUNDERY927</div>
+    <div class="preloader__counter">0%</div>
+    <div class="preloader__bar">
+      <div class="preloader__bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION
+  ════════════════════════════════════════════ -->
+  <nav class="nav" id="nav" aria-label="Primary navigation">
+    <div class="nav__inner container">
+      <a href="#hero" class="nav__logo" aria-label="FOUNDERY927 — Back to top">FOUNDERY927</a>
+
+      <div class="nav__links" role="menubar">
+        <a href="#work" class="nav__link magnetic" role="menuitem">Work</a>
+        <a href="#services" class="nav__link magnetic" role="menuitem">Services</a>
+        <a href="#process" class="nav__link magnetic" role="menuitem">Process</a>
+        <a href="#about" class="nav__link magnetic" role="menuitem">About</a>
+        <a href="#testimonials" class="nav__link magnetic" role="menuitem">Testimonials</a>
+        <a href="#faq" class="nav__link magnetic" role="menuitem">FAQ</a>
+      </div>
+
+      <a href="#cta-section" class="nav__cta btn btn--primary btn--small magnetic">
+        <span class="btn__text">Start a Project</span>
+      </a>
+
+      <button class="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       MOBILE NAV OVERLAY
+  ════════════════════════════════════════════ -->
+  <div class="nav-mobile__overlay" aria-hidden="true">
+    <div class="nav-mobile__links">
+      <a href="#work" class="nav-mobile__link">Work</a>
+      <a href="#services" class="nav-mobile__link">Services</a>
+      <a href="#process" class="nav-mobile__link">Process</a>
+      <a href="#about" class="nav-mobile__link">About</a>
+      <a href="#testimonials" class="nav-mobile__link">Testimonials</a>
+      <a href="#faq" class="nav-mobile__link">FAQ</a>
+      <a href="#cta-section" class="nav-mobile__link nav-mobile__link--cta">Start a Project</a>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       MAIN CONTENT
+  ════════════════════════════════════════════ -->
+  <main>
+
+    <!-- ─── HERO ─── -->
+    <section class="hero section section--fullscreen" id="hero" aria-label="Hero">
+      <div class="hero__content container">
+        <h1 class="hero__headline-img-container">
+          <div class="hero__founder-img-wrapper">
+            <img src="/founder.png" class="hero__founder-img" alt="FOUNDRY927">
+          </div>
+        </h1>
+        <p class="hero__sub">Storytelling, Narration & Executive Media Coaching by Sunanda Jayaseelan. Over 20 years of television journalism and economic storytelling.</p>
+        <div class="hero__buttons">
+          <a href="#work" class="btn btn--primary btn--large magnetic">
+            <span class="btn__text">View Our Work</span>
+            <span class="btn__arrow">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+          <a href="#cta-section" class="btn btn--outline btn--large magnetic">
+            <span class="btn__text">Book a Call</span>
+          </a>
+        </div>
+      </div>
+      <canvas class="hero__particles" aria-hidden="true"></canvas>
+      <div class="hero__gradient" aria-hidden="true"></div>
+      <div class="hero__noise" aria-hidden="true"></div>
+    </section>
+
+    <!-- ─── TRUST BAR ─── -->
+    <section class="trust-bar" id="trust-bar" aria-label="Trusted by leading brands">
+      <div class="trust-bar__marquee" aria-hidden="true">
+        <div class="trust-bar__track">
+          <span class="trust-bar__item">NOVA</span>
+          <span class="trust-bar__item">MERIDIAN</span>
+          <span class="trust-bar__item">APEX</span>
+          <span class="trust-bar__item">LUMIÈRE</span>
+          <span class="trust-bar__item">VERTEX</span>
+          <span class="trust-bar__item">ONYX</span>
+          <span class="trust-bar__item">STRATTON</span>
+          <span class="trust-bar__item">HERALD</span>
+          <span class="trust-bar__item">CIPHER</span>
+          <span class="trust-bar__item">PRISM</span>
+          <span class="trust-bar__item">ATLAS</span>
+          <span class="trust-bar__item">ZENITH</span>
+          <!-- Duplicate for seamless loop -->
+          <span class="trust-bar__item">NOVA</span>
+          <span class="trust-bar__item">MERIDIAN</span>
+          <span class="trust-bar__item">APEX</span>
+          <span class="trust-bar__item">LUMIÈRE</span>
+          <span class="trust-bar__item">VERTEX</span>
+          <span class="trust-bar__item">ONYX</span>
+          <span class="trust-bar__item">STRATTON</span>
+          <span class="trust-bar__item">HERALD</span>
+          <span class="trust-bar__item">CIPHER</span>
+          <span class="trust-bar__item">PRISM</span>
+          <span class="trust-bar__item">ATLAS</span>
+          <span class="trust-bar__item">ZENITH</span>
+        </div>
+      </div>
+
+      <div class="trust-bar__stats container">
+        <div class="trust-bar__stat">
+          <span class="trust-bar__stat-number" data-target="500" data-suffix="+">0</span>
+          <span class="trust-bar__stat-label">Shows Hosted</span>
+        </div>
+        <div class="trust-bar__divider"></div>
+        <div class="trust-bar__stat">
+          <span class="trust-bar__stat-number" data-target="1000" data-suffix="+">0</span>
+          <span class="trust-bar__stat-label">Interviews Conducted</span>
+        </div>
+        <div class="trust-bar__divider"></div>
+        <div class="trust-bar__stat">
+          <span class="trust-bar__stat-number" data-target="20" data-suffix="+">0</span>
+          <span class="trust-bar__stat-label">Years Experience</span>
+        </div>
+        <div class="trust-bar__divider"></div>
+        <div class="trust-bar__stat">
+          <span class="trust-bar__stat-number" data-target="5" data-suffix="+">0</span>
+          <span class="trust-bar__stat-label">Networks Anchored</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FEATURED WORK ─── -->
+    <section class="section section--dark" id="work" aria-label="Featured Work">
+      <div class="work container">
+        <div class="work__header reveal-up">
+          <span class="tag">Exclusive Conversations</span>
+          <h2>Featured Work</h2>
+          <p>In-depth dialogues where global vision meets editorial precision. High-profile segments broadcasted worldwide.</p>
+        </div>
+
+        <div class="work__grid">
+          <!-- Project 1: NOVA -->
+          <div class="work__card reveal-up" data-project="nova">
+            <div class="work__card-image" style="background-color: #E8D5B7;" aria-label="SIR RICHARD BRANSON project preview"></div>
+            <div class="work__card-overlay"></div>
+            <div class="work__card-info">
+              <h3 class="work__card-title">SIR RICHARD BRANSON</h3>
+              <span class="work__card-category">Exclusive Interview · Global Leadership</span>
+            </div>
+            <button class="work__card-arrow" aria-label="View SIR RICHARD BRANSON case study">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </button>
+          </div>
+
+          <!-- Project 2: MERIDIAN -->
+          <div class="work__card reveal-up" data-project="meridian">
+            <div class="work__card-image" style="background-color: #7B93DB;" aria-label="NANDAN NILEKANI project preview"></div>
+            <div class="work__card-overlay"></div>
+            <div class="work__card-info">
+              <h3 class="work__card-title">NANDAN NILEKANI</h3>
+              <span class="work__card-category">Exclusive Interview · Digital Public Goods</span>
+            </div>
+            <button class="work__card-arrow" aria-label="View NANDAN NILEKANI case study">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </button>
+          </div>
+
+          <!-- Project 3: APEX VENTURES -->
+          <div class="work__card reveal-up" data-project="apex">
+            <div class="work__card-image" style="background-color: #C8FF00;" aria-label="NARAYANA MURTHY project preview"></div>
+            <div class="work__card-overlay"></div>
+            <div class="work__card-info">
+              <h3 class="work__card-title">NARAYANA MURTHY</h3>
+              <span class="work__card-category">Exclusive Interview · IT Services</span>
+            </div>
+            <button class="work__card-arrow" aria-label="View NARAYANA MURTHY case study">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </button>
+          </div>
+
+          <!-- Project 4: LUMIÈRE -->
+          <div class="work__card reveal-up" data-project="lumiere">
+            <div class="work__card-image" style="background-color: #FFB347;" aria-label="JOHN CHAMBERS project preview"></div>
+            <div class="work__card-overlay"></div>
+            <div class="work__card-info">
+              <h3 class="work__card-title">JOHN CHAMBERS</h3>
+              <span class="work__card-category">Exclusive Interview · Cisco Leadership</span>
+            </div>
+            <button class="work__card-arrow" aria-label="View JOHN CHAMBERS case study">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </button>
+          </div>
+
+          <!-- Project 5: VERTEX AI -->
+          <div class="work__card reveal-up" data-project="vertex">
+            <div class="work__card-image" style="background-color: #A78BFA;" aria-label="G20 SUMMITS project preview"></div>
+            <div class="work__card-overlay"></div>
+            <div class="work__card-info">
+              <h3 class="work__card-title">G20 SUMMITS</h3>
+              <span class="work__card-category">Policy & Forums · International Affairs</span>
+            </div>
+            <button class="work__card-arrow" aria-label="View G20 SUMMITS case study">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </button>
+          </div>
+
+          <!-- Project 6: ONYX GROUP -->
+          <div class="work__card reveal-up" data-project="onyx">
+            <div class="work__card-image" style="background-color: #F0C674;" aria-label="PRIME TIME JOURNALISM project preview"></div>
+            <div class="work__card-overlay"></div>
+            <div class="work__card-info">
+              <h3 class="work__card-title">PRIME TIME JOURNALISM</h3>
+              <span class="work__card-category">Media Coverage · Television Broadcasting</span>
+            </div>
+            <button class="work__card-arrow" aria-label="View PRIME TIME JOURNALISM case study">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SERVICES ─── -->
+    <section class="section" id="services" aria-label="Our Services">
+      <div class="services container">
+        <div class="services__header reveal-up">
+          <span class="tag">What We Do</span>
+          <h2>Services</h2>
+          <p>Journalistic-grade media strategy, executive mentoring, and end-to-end podcast and documentary curation.</p>
+        </div>
+
+        <div class="services__grid">
+          <!-- Service 01: Executive Media Coaching -->
+          <div class="services__card reveal-up">
+            <span class="services__card-number">01</span>
+            <div class="services__card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"/><path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"/><path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"/><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"/><path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"/></svg>
+            </div>
+            <h3 class="services__card-title">Executive Media Coaching</h3>
+            <p class="services__card-desc">Working closely with CXOs and senior leadership to tell their brand story. Custom-tailored to executive strengths and business objectives.</p>
+            <div class="services__card-glow" aria-hidden="true"></div>
+          </div>
+
+          <!-- Service 02: Podcast Curation -->
+          <div class="services__card reveal-up">
+            <span class="services__card-number">02</span>
+            <div class="services__card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3 class="services__card-title">Podcast Curation</h3>
+            <p class="services__card-desc">End-to-end podcast production, moderators, original research, and in-house video shooting/editing capabilities.</p>
+            <div class="services__card-glow" aria-hidden="true"></div>
+          </div>
+
+          <!-- Service 03: Hosting Corporate Shows -->
+          <div class="services__card reveal-up">
+            <span class="services__card-number">03</span>
+            <div class="services__card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            </div>
+            <h3 class="services__card-title">Hosting Corporate Shows</h3>
+            <p class="services__card-desc">Moderated leadership forums, panel discussions, and high-impact business summits with professional prime-time presence.</p>
+            <div class="services__card-glow" aria-hidden="true"></div>
+          </div>
+
+          <!-- Service 04: Exclusive Interviews -->
+          <div class="services__card reveal-up">
+            <span class="services__card-number">04</span>
+            <div class="services__card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+            </div>
+            <h3 class="services__card-title">Exclusive Interviews</h3>
+            <p class="services__card-desc">In-depth conversations with global icons (e.g. Richard Branson, Nandan Nilekani) and top policy voices.</p>
+            <div class="services__card-glow" aria-hidden="true"></div>
+          </div>
+
+          <!-- Service 05: Documentary Storytelling -->
+          <div class="services__card reveal-up">
+            <span class="services__card-number">05</span>
+            <div class="services__card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3 class="services__card-title">Documentary Storytelling</h3>
+            <p class="services__card-desc">Deep economic and business journalism documentaries exploring economic cycles and global shifts.</p>
+            <div class="services__card-glow" aria-hidden="true"></div>
+          </div>
+
+          <!-- Service 06: Editorial Strategy -->
+          <div class="services__card reveal-up">
+            <span class="services__card-number">06</span>
+            <div class="services__card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <h3 class="services__card-title">Editorial Strategy</h3>
+            <p class="services__card-desc">Robust background research, audience engagement systems, and content structures tailored for corporate media.</p>
+            <div class="services__card-glow" aria-hidden="true"></div>
+          </div>
+
+          <!-- Service 07: Moderation & Workshops -->
+          <div class="services__card reveal-up">
+            <span class="services__card-number">07</span>
+            <div class="services__card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </div>
+            <h3 class="services__card-title">Moderation & Workshops</h3>
+            <p class="services__card-desc">Facilitating leadership roundtables, stakeholder forums, and media preparedness training workshops.</p>
+            <div class="services__card-glow" aria-hidden="true"></div>
+          </div>
+
+          <!-- Service 08: Brand Narration -->
+          <div class="services__card reveal-up">
+            <span class="services__card-number">08</span>
+            <div class="services__card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"/><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"/><path d="M8.56 2.75c4.37 6 6 12 7.56 18.5"/></svg>
+            </div>
+            <h3 class="services__card-title">Brand Narration</h3>
+            <p class="services__card-desc">Unlocking corporate messaging through video logs, professional narration, and PR consulting.</p>
+            <div class="services__card-glow" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PROCESS ─── -->
+    <section class="section section--dark" id="process" aria-label="Our Process">
+      <div class="process container">
+        <div class="process__header reveal-up">
+          <span class="tag">How We Work</span>
+          <h2>Our Process</h2>
+          <p>Six phases. Zero guesswork. Every media assignment follows a rigorous television-grade methodology.</p>
+        </div>
+
+        <div class="process__progress" aria-hidden="true">
+          <div class="process__progress-fill"></div>
+        </div>
+
+        <div class="process__track">
+          <svg class="process__line" aria-hidden="true" preserveAspectRatio="none">
+            <line x1="0" y1="50%" x2="100%" y2="50%" stroke="rgba(200,255,0,0.2)" stroke-width="2" stroke-dasharray="8 4"/>
+          </svg>
+
+          <!-- Step 01 -->
+          <div class="process__step">
+            <span class="process__step-number">01</span>
+            <h3 class="process__step-title">Briefing</h3>
+            <p class="process__step-desc">Deep-dive briefings with corporate teams to establish clear editorial and narrative goals.</p>
+          </div>
+
+          <!-- Step 02 -->
+          <div class="process__step">
+            <span class="process__step-number">02</span>
+            <h3 class="process__step-title">Research</h3>
+            <p class="process__step-desc">Rigorous background research and analysis of industry topics, economic reports, and guest profiles.</p>
+          </div>
+
+          <!-- Step 03 -->
+          <div class="process__step">
+            <span class="process__step-number">03</span>
+            <h3 class="process__step-title">Strategy</h3>
+            <p class="process__step-desc">Detailed content framing, guest alignment strategies, and executive question outlines.</p>
+          </div>
+
+          <!-- Step 04 -->
+          <div class="process__step">
+            <span class="process__step-number">04</span>
+            <h3 class="process__step-title">Production</h3>
+            <p class="process__step-desc">Broadcast-quality multi-camera video recording and audio capture in executive boardrooms or studios.</p>
+          </div>
+
+          <!-- Step 05 -->
+          <div class="process__step">
+            <span class="process__step-number">05</span>
+            <h3 class="process__step-title">Editing</h3>
+            <p class="process__step-desc">TV-grade editing, narration addition, motion graphics, and audio engineering for peak clarity.</p>
+          </div>
+
+          <!-- Step 06 -->
+          <div class="process__step">
+            <span class="process__step-number">06</span>
+            <h3 class="process__step-title">Syndication</h3>
+            <p class="process__step-desc">Multi-platform publishing, key quote extracts for PR, and global news channel integrations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── ABOUT ─── -->
+    <section class="section" id="about" aria-label="About FOUNDRY927">
+      <div class="about container">
+        <div class="about__content">
+          <div class="about__text">
+            <span class="tag reveal-up">Who We Are</span>
+            <h2 class="reveal-up">We're not a factory.<br>We forge stories.</h2>
+            <p class="reveal-up">Hi, I’m Sunanda Jayaseelan. I’ve spent more than 20 years as a television journalist, telling stories that matter — from breaking news moments to features that stay with you long after the camera lights fade.</p>
+            <p class="reveal-up">What drives me is simple: connecting with people, making sense of complex issues, and sharing stories that inspire conversation and understanding. Under FOUNDRY927, I bring that same TV-journalist passion to help ambitious brands and leaders articulate their digital stories.</p>
+            <blockquote class="about__quote reveal-up">
+              <p>"Stories are the ultimate currency of connection. Our mission is to ensure every leader's voice is heard with complete clarity."</p>
+              <cite>— Sunanda Jayaseelan, Founder</cite>
+            </blockquote>
+          </div>
+          <div class="about__image reveal-scale">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg, #C8FF00 0%, #050505 100%);border-radius:12px;" aria-label="FOUNDRY927 studio"></div>
+          </div>
+        </div>
+
+        <div class="about__metrics">
+          <div class="about__metric reveal-up">
+            <span class="about__metric-number" data-target="500" data-suffix="+">0</span>
+            <span class="about__metric-label">Shows Hosted</span>
+          </div>
+          <div class="about__metric reveal-up">
+            <span class="about__metric-number" data-target="1000" data-suffix="+">0</span>
+            <span class="about__metric-label">Interviews Conducted</span>
+          </div>
+          <div class="about__metric reveal-up">
+            <span class="about__metric-number" data-target="20" data-suffix="+">0</span>
+            <span class="about__metric-label">Years Experience</span>
+          </div>
+          <div class="about__metric reveal-up">
+            <span class="about__metric-number" data-target="12" data-suffix="+">0</span>
+            <span class="about__metric-label">Industry Awards</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── TEAM ─── -->
+    <section class="section section--dark" id="team" aria-label="Our Team">
+      <div class="team container">
+        <div class="team__header reveal-up">
+          <span class="tag">The People</span>
+          <h2>Meet the Team</h2>
+          <p>Broadcast-grade content demands specialized talent. We bring TV-caliber production to corporate storytelling.</p>
+        </div>
+
+        <div class="team__grid">
+          <!-- Sunanda Jayaseelan -->
+          <div class="team__card reveal-up">
+            <div class="team__card-image">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg, #C8FF00 0%, #333 100%);border-radius:8px;" aria-label="Sunanda Jayaseelan portrait"></div>
+            </div>
+            <div class="team__card-info">
+              <h3 class="team__card-name">Sunanda Jayaseelan</h3>
+              <span class="team__card-role">Founder &amp; Journalist</span>
+              <div class="team__card-social">
+                <a href="#" class="team__social-link" aria-label="Sunanda Jayaseelan on Twitter">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                </a>
+                <a href="http://in.linkedin.com/in/sunandajayaseelan" class="team__social-link" aria-label="Sunanda Jayaseelan on LinkedIn" target="_blank" rel="noopener">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Editorial Lead -->
+          <div class="team__card reveal-up">
+            <div class="team__card-image">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg, #A78BFA 0%, #333 100%);border-radius:8px;" aria-label="Editorial Lead portrait"></div>
+            </div>
+            <div class="team__card-info">
+              <h3 class="team__card-name">Editorial Lead</h3>
+              <span class="team__card-role">Research Associate</span>
+              <div class="team__card-social">
+                <a href="#" class="team__social-link" aria-label="Editorial Lead on Twitter">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                </a>
+                <a href="#" class="team__social-link" aria-label="Editorial Lead on LinkedIn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Production Lead -->
+          <div class="team__card reveal-up">
+            <div class="team__card-image">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg, #7B93DB 0%, #333 100%);border-radius:8px;" aria-label="Production Lead portrait"></div>
+            </div>
+            <div class="team__card-info">
+              <h3 class="team__card-name">Production Lead</h3>
+              <span class="team__card-role">Technical Director</span>
+              <div class="team__card-social">
+                <a href="#" class="team__social-link" aria-label="Production Lead on Twitter">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                </a>
+                <a href="#" class="team__social-link" aria-label="Production Lead on LinkedIn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="#" class="team__social-link" aria-label="Production Lead on GitHub">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Media Coordinator -->
+          <div class="team__card reveal-up">
+            <div class="team__card-image">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg, #FFB347 0%, #333 100%);border-radius:8px;" aria-label="Media Coordinator portrait"></div>
+            </div>
+            <div class="team__card-info">
+              <h3 class="team__card-name">Media Coordinator</h3>
+              <span class="team__card-role">Operations Manager</span>
+              <div class="team__card-social">
+                <a href="#" class="team__social-link" aria-label="Media Coordinator on Twitter">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                </a>
+                <a href="#" class="team__social-link" aria-label="Media Coordinator on LinkedIn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── TESTIMONIALS ─── -->
+    <section class="section" id="testimonials" aria-label="Client Testimonials">
+      <div class="testimonials container">
+        <div class="testimonials__header reveal-up">
+          <span class="tag">Client Reviews</span>
+          <h2>What They Say</h2>
+        </div>
+
+        <div class="testimonials__slider">
+          <div class="testimonials__track">
+            <!-- Slide 1 -->
+            <div class="testimonials__slide" data-slide="0">
+              <blockquote class="testimonials__quote">
+                <p>"Sunanda didn't just coach our leadership — she helped us discover and project our true brand voice. The confidence of our senior executives during public engagements has soared."</p>
+              </blockquote>
+              <div class="testimonials__author">
+                <div class="testimonials__author-image" style="background:linear-gradient(135deg,#E8D5B7,#333);border-radius:50%;" aria-label="Sarah Kim"></div>
+                <div>
+                  <span class="testimonials__author-name">Sarah Kim</span>
+                  <span class="testimonials__author-role">CEO, NOVA</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="testimonials__slide" data-slide="1">
+              <blockquote class="testimonials__quote">
+                <p>"The attention to detail and editorial depth Sunanda brought to our corporate media coaching was stellar. A masterclass in executive branding."</p>
+              </blockquote>
+              <div class="testimonials__author">
+                <div class="testimonials__author-image" style="background:linear-gradient(135deg,#7B93DB,#333);border-radius:50%;" aria-label="David Park"></div>
+                <div>
+                  <span class="testimonials__author-name">David Park</span>
+                  <span class="testimonials__author-role">CTO, MERIDIAN</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="testimonials__slide" data-slide="2">
+              <blockquote class="testimonials__quote">
+                <p>"Working with Sunanda was a game-changer. She moderated our leadership panels with exceptional prime-time energy, keeping the conversation insightful."</p>
+              </blockquote>
+              <div class="testimonials__author">
+                <div class="testimonials__author-image" style="background:linear-gradient(135deg,#C8FF00,#333);border-radius:50%;" aria-label="Elena Vasquez"></div>
+                <div>
+                  <span class="testimonials__author-name">Elena Vasquez</span>
+                  <span class="testimonials__author-role">CMO, APEX</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="testimonials__slide" data-slide="3">
+              <blockquote class="testimonials__quote">
+                <p>"She curated our product podcast end-to-end, making complex technological architectures feel highly approachable for public audiences."</p>
+              </blockquote>
+              <div class="testimonials__author">
+                <div class="testimonials__author-image" style="background:linear-gradient(135deg,#A78BFA,#333);border-radius:50%;" aria-label="Thomas Wright"></div>
+                <div>
+                  <span class="testimonials__author-name">Thomas Wright</span>
+                  <span class="testimonials__author-role">Founder, VERTEX AI</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonials__dots" role="tablist" aria-label="Testimonial slides">
+          <button class="testimonials__dot testimonials__dot--active" role="tab" aria-selected="true" aria-label="Slide 1" data-slide="0"></button>
+          <button class="testimonials__dot" role="tab" aria-selected="false" aria-label="Slide 2" data-slide="1"></button>
+          <button class="testimonials__dot" role="tab" aria-selected="false" aria-label="Slide 3" data-slide="2"></button>
+          <button class="testimonials__dot" role="tab" aria-selected="false" aria-label="Slide 4" data-slide="3"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── AWARDS ─── -->
+    <section class="section section--dark" id="awards" aria-label="Awards & Recognition">
+      <div class="awards__bg-text">FOUNDRY927</div>
+      <div class="awards__container container">
+        <div class="awards__header reveal-up">
+          <span class="tag">Recognition</span>
+          <h2>Awards</h2>
+          <p>Our work and journalistic excellence have been recognized by leading media guilds and forums.</p>
+        </div>
+
+        <div class="awards__stack-viewport">
+          <div class="awards__stack-wrapper">
+            <!-- Dynamic stack cards loaded by cms.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FAQ ─── -->
+    <section class="section" id="faq" aria-label="Frequently Asked Questions">
+      <div class="faq container">
+        <div class="faq__header reveal-up">
+          <span class="tag">Questions</span>
+          <h2>FAQ</h2>
+          <p>Answers to common questions about working with FOUNDERY927.</p>
+        </div>
+
+        <div class="faq__list">
+          <!-- FAQ 1 -->
+          <div class="faq__item" data-faq="1">
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-1">
+              <span>What does the Executive Media Coaching program cover?</span>
+              <span class="faq__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq__answer" id="faq-answer-1" role="region" aria-hidden="true">
+              <p>The program is custom-tailored to the executive's strengths, areas of improvement, and business context. It covers brand storytelling, media readiness, public speaking, and managing high-stakes live TV or press interviews.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq__item" data-faq="2">
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-2">
+              <span>How do you handle podcast production end-to-end?</span>
+              <span class="faq__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq__answer" id="faq-answer-2" role="region" aria-hidden="true">
+              <p>We handle the entire process, including original background research, editorial strategy, hosting/moderation, and complete in-house shooting and editing of both video and audio formats.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq__item" data-faq="3">
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-3">
+              <span>Can you host and moderate corporate events or panels?</span>
+              <span class="faq__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq__answer" id="faq-answer-3" role="region" aria-hidden="true">
+              <p>Yes. Drawing from over 20 years of live prime-time TV anchoring, I moderate leadership forums, ministerial summits, G20 panels, and high-impact corporate discussions with professional presence.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq__item" data-faq="4">
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-4">
+              <span>How do we collaborate on exclusive leadership interviews?</span>
+              <span class="faq__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq__answer" id="faq-answer-4" role="region" aria-hidden="true">
+              <p>We conduct deep research to construct precise, high-impact editorial angles. I have interviewed global business figures like Sir Richard Branson, Nandan Nilekani, and John Chambers.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq__item" data-faq="5">
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-5">
+              <span>Is the training delivered individually or in groups?</span>
+              <span class="faq__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq__answer" id="faq-answer-5" role="region" aria-hidden="true">
+              <p>We offer both individual custom coaching for CXOs/founders and structured group workshops or roundtable prep sessions for corporate leadership teams.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq__item" data-faq="6">
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-6">
+              <span>How do we get started with FOUNDERY927?</span>
+              <span class="faq__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq__answer" id="faq-answer-6" role="region" aria-hidden="true">
+              <p>You can book a discovery call by clicking our 'Connect' or 'Book Discovery Call' buttons. We will discuss your brand narrative goals and outline a tailored engagement plan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA ─── -->
+    <section class="cta-section section section--fullscreen" id="cta-section" aria-label="Start a project">
+      <div class="cta-section__content container">
+        <h2 class="cta-section__headline split-text">LET'S BUILD SOMETHING EXTRAORDINARY.</h2>
+        <div class="cta-section__buttons">
+          <a href="mailto:foundry927@gmail.com" class="btn btn--primary btn--large magnetic">
+            <span class="btn__text">Start a Project</span>
+            <span class="btn__arrow">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+          <a href="mailto:foundry927@gmail.com?subject=Discovery%20Call" class="btn btn--outline btn--large magnetic">
+            <span class="btn__text">Book Discovery Call</span>
+          </a>
+        </div>
+      </div>
+      <div class="cta-section__gradient" aria-hidden="true"></div>
+      <canvas class="cta-section__particles" aria-hidden="true"></canvas>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════ -->
+  <footer class="footer" id="footer" aria-label="Footer">
+    <div class="footer__inner container">
+      <div class="footer__grid">
+        <!-- Column 1: Company -->
+        <div class="footer__col">
+          <a href="#hero" class="footer__logo">FOUNDERY927</a>
+          <p>Storytelling, narration, and executive media coaching for leaders, founders, and global organizations.</p>
+        </div>
+
+        <!-- Column 2: Navigation -->
+        <div class="footer__col">
+          <h4>Navigation</h4>
+          <div class="footer__links">
+            <a href="#work" class="footer__link">Work</a>
+            <a href="#services" class="footer__link">Services</a>
+            <a href="#process" class="footer__link">Process</a>
+            <a href="#about" class="footer__link">About</a>
+            <a href="#testimonials" class="footer__link">Testimonials</a>
+            <a href="#faq" class="footer__link">FAQ</a>
+          </div>
+        </div>
+
+        <!-- Column 3: Services -->
+        <div class="footer__col">
+          <h4>Services</h4>
+          <div class="footer__links">
+            <a href="#services" class="footer__link">Executive Media Coaching</a>
+            <a href="#services" class="footer__link">Podcast Curation</a>
+            <a href="#services" class="footer__link">Hosting Corporate Shows</a>
+            <a href="#services" class="footer__link">Exclusive Interviews</a>
+            <a href="#services" class="footer__link">Documentary Storytelling</a>
+            <a href="#services" class="footer__link">Editorial Strategy</a>
+          </div>
+        </div>
+
+        <!-- Column 4: Contact -->
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <div class="footer__contact">
+            <a href="mailto:foundry927@gmail.com" class="footer__link">foundry927@gmail.com</a>
+            <a href="tel:+15559270000" class="footer__link">+1 (555) 927-0000</a>
+            <p>Bangalore, India /<br>New York, NY</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div class="footer__socials">
+        <a href="https://twitter.com/foundery927" class="footer__social" aria-label="Twitter" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+        </a>
+        <a href="https://instagram.com/foundery927" class="footer__social" aria-label="Instagram" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="http://in.linkedin.com/in/sunandajayaseelan" class="footer__social" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://dribbble.com/foundery927" class="footer__social" aria-label="Dribbble" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"/><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"/><path d="M8.56 2.75c4.37 6 6 12 7.56 18.5"/></svg>
+        </a>
+      </div>
+
+      <!-- Watermark -->
+      <div class="footer__watermark" aria-hidden="true">FOUNDERY927</div>
+
+      <!-- Bottom Bar -->
+      <div class="footer__bottom">
+        <span class="footer__copyright">&copy; 2024 FOUNDERY927. All rights reserved.</span>
+        <button class="footer__back-to-top magnetic" aria-label="Back to top">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════
+       CASE STUDY OVERLAY
+  ════════════════════════════════════════════ -->
+  <div class="case-study__overlay" id="case-study" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Case Study">
+    <button class="case-study__close" aria-label="Close case study">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="case-study__content">
+      <div class="case-study__hero">
+        <span class="case-study__category"></span>
+        <h2 class="case-study__title"></h2>
+        <p class="case-study__description"></p>
+      </div>
+      <div class="case-study__section">
+        <h3>The Challenge</h3>
+        <p class="case-study__challenge"></p>
+      </div>
+      <div class="case-study__section">
+        <h3>Our Strategy</h3>
+        <p class="case-study__strategy"></p>
+      </div>
+      <div class="case-study__metrics"></div>
+    </div>
+  </div>
+
+</body>
+</html>

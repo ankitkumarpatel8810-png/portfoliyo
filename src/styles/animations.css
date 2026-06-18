@@ -1,0 +1,423 @@
+/* ==========================================================================
+   FOUNDERY927 — Animation System
+   Initial states for GSAP reveals, CSS keyframes, cursor styles,
+   and prefers-reduced-motion safeguards.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Reveal States — GSAP animates FROM these TO normal
+   opacity: 0 + transform offset; GSAP will tween to opacity:1, transform:none.
+   -------------------------------------------------------------------------- */
+
+.reveal {
+  opacity: 1;
+  will-change: opacity, transform;
+}
+
+.reveal-up {
+  opacity: 1;
+  will-change: opacity, transform;
+}
+
+.reveal-left {
+  opacity: 1;
+  will-change: opacity, transform;
+}
+
+.reveal-right {
+  opacity: 1;
+  will-change: opacity, transform;
+}
+
+.reveal-scale {
+  opacity: 1;
+  will-change: opacity, transform;
+}
+
+.reveal-fade {
+  opacity: 1;
+  will-change: opacity;
+}
+
+/* --------------------------------------------------------------------------
+   Parallax marker — JS reads this
+   -------------------------------------------------------------------------- */
+
+.parallax {
+  will-change: transform;
+}
+
+/* --------------------------------------------------------------------------
+   Keyframes — Float
+   Subtle hovering / levitating motion.
+   -------------------------------------------------------------------------- */
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Keyframes — Pulse
+   Gentle breathing scale.
+   -------------------------------------------------------------------------- */
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Keyframes — Gradient Shift
+   Moving background position for animated gradient fills.
+   -------------------------------------------------------------------------- */
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Keyframes — Marquee
+   Continuous horizontal scroll (trust bar, etc).
+   -------------------------------------------------------------------------- */
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Keyframes — Noise
+   Jittering background-position for film grain / noise texture overlay.
+   -------------------------------------------------------------------------- */
+
+@keyframes noise {
+  0%   { background-position: 0 0; }
+  10%  { background-position: -5% -10%; }
+  20%  { background-position: -15% 5%; }
+  30%  { background-position: 7% -25%; }
+  40%  { background-position: -5% 25%; }
+  50%  { background-position: -15% 10%; }
+  60%  { background-position: 15% 0%; }
+  70%  { background-position: 0% 15%; }
+  80%  { background-position: 3% 35%; }
+  90%  { background-position: -10% 10%; }
+  100% { background-position: 0 0; }
+}
+
+/* --------------------------------------------------------------------------
+   Keyframes — Spin
+   360° rotation (loaders, icons).
+   -------------------------------------------------------------------------- */
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Keyframes — Fade In
+   Simple opacity entrance.
+   -------------------------------------------------------------------------- */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Keyframes — Slide Up
+   From below into position.
+   -------------------------------------------------------------------------- */
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Keyframes — Slide Down
+   -------------------------------------------------------------------------- */
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Keyframes — Draw
+   SVG stroke animation — dashoffset reveal.
+   -------------------------------------------------------------------------- */
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Keyframes — Scale In
+   -------------------------------------------------------------------------- */
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Keyframes — Shimmer
+   Loading skeleton effect.
+   -------------------------------------------------------------------------- */
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Animation Utility Classes
+   Apply keyframes with sensible defaults.
+   -------------------------------------------------------------------------- */
+
+.animate-float {
+  animation: float 6s var(--ease-smooth) infinite;
+}
+
+.animate-pulse {
+  animation: pulse 3s var(--ease-smooth) infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s var(--ease-out-expo) forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.6s var(--ease-out-expo) forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-elevated) 25%,
+    var(--color-bg-card) 50%,
+    var(--color-bg-elevated) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* --------------------------------------------------------------------------
+   Stagger Delay Utilities
+   Use with GSAP or CSS animations for sequential reveals.
+   -------------------------------------------------------------------------- */
+
+.stagger-1 { transition-delay: 0.05s; animation-delay: 0.05s; }
+.stagger-2 { transition-delay: 0.10s; animation-delay: 0.10s; }
+.stagger-3 { transition-delay: 0.15s; animation-delay: 0.15s; }
+.stagger-4 { transition-delay: 0.20s; animation-delay: 0.20s; }
+.stagger-5 { transition-delay: 0.25s; animation-delay: 0.25s; }
+.stagger-6 { transition-delay: 0.30s; animation-delay: 0.30s; }
+.stagger-7 { transition-delay: 0.35s; animation-delay: 0.35s; }
+.stagger-8 { transition-delay: 0.40s; animation-delay: 0.40s; }
+
+/* --------------------------------------------------------------------------
+   Custom Cursor
+   Fixed overlay, pointer-events none, mix-blend-mode for contrast.
+   -------------------------------------------------------------------------- */
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: var(--z-cursor);
+  mix-blend-mode: difference;
+  transition: opacity 0.3s var(--ease-smooth);
+}
+
+.cursor__dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  transition: transform 0.15s var(--ease-out-expo);
+}
+
+.cursor__ring {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-accent);
+  border-radius: 50%;
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  opacity: 0.5;
+  transition:
+    transform 0.3s var(--ease-out-expo),
+    opacity 0.3s var(--ease-smooth),
+    width 0.3s var(--ease-out-expo),
+    height 0.3s var(--ease-out-expo);
+}
+
+/* Cursor states */
+.cursor--link .cursor__ring {
+  transform: scale(1.5);
+  opacity: 1;
+}
+
+.cursor--link .cursor__dot {
+  transform: scale(0.5);
+}
+
+.cursor--action .cursor__ring {
+  transform: scale(2);
+  opacity: 0.8;
+  border-color: var(--color-accent-hover);
+}
+
+.cursor--action .cursor__dot {
+  transform: scale(0);
+}
+
+.cursor--hidden {
+  opacity: 0;
+}
+
+.cursor--hidden .cursor__dot,
+.cursor--hidden .cursor__ring {
+  opacity: 0;
+}
+
+/* Hide custom cursor on touch devices */
+@media (hover: none), (pointer: coarse) {
+  .cursor {
+    display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Transition Utilities
+   -------------------------------------------------------------------------- */
+
+.transition-all {
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.transition-fast {
+  transition: all 0.2s var(--ease-smooth);
+}
+
+.transition-slow {
+  transition: all 0.8s var(--ease-out-expo);
+}
+
+.transition-none {
+  transition: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   Prefers Reduced Motion — Accessibility
+   Disables all animations and transitions for users who opt out.
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal,
+  .reveal-up,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .reveal-fade {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .animate-float,
+  .animate-pulse,
+  .animate-gradient,
+  .animate-spin,
+  .animate-shimmer {
+    animation: none !important;
+  }
+
+  .parallax {
+    transform: none !important;
+  }
+
+  .cursor {
+    display: none !important;
+  }
+}

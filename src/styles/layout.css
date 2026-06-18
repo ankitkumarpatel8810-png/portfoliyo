@@ -1,0 +1,336 @@
+/* ==========================================================================
+   FOUNDERY927 — Layout System
+   Container, grid, section, and spacing utilities.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Container
+   -------------------------------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(20px, 4vw, 80px);
+  padding-right: clamp(20px, 4vw, 80px);
+}
+
+.container--wide {
+  max-width: 1600px;
+}
+
+.container--narrow {
+  max-width: 960px;
+}
+
+.container--full {
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Section
+   -------------------------------------------------------------------------- */
+
+.section {
+  padding-block: var(--space-section);
+  position: relative;
+  overflow: hidden;
+}
+
+.section--dark {
+  background-color: var(--color-bg-alt);
+}
+
+.section--fullscreen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.section--no-overflow {
+  overflow: visible;
+}
+
+.section__header {
+  margin-bottom: var(--space-xl);
+  max-width: 800px;
+}
+
+.section__header--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   12-Column Grid
+   -------------------------------------------------------------------------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--grid-gap);
+}
+
+/* Column spans */
+.col-1  { grid-column: span 1; }
+.col-2  { grid-column: span 2; }
+.col-3  { grid-column: span 3; }
+.col-4  { grid-column: span 4; }
+.col-5  { grid-column: span 5; }
+.col-6  { grid-column: span 6; }
+.col-7  { grid-column: span 7; }
+.col-8  { grid-column: span 8; }
+.col-9  { grid-column: span 9; }
+.col-10 { grid-column: span 10; }
+.col-11 { grid-column: span 11; }
+.col-12 { grid-column: span 12; }
+
+/* Responsive: Desktop (1024px+) — default grid */
+
+/* Responsive: Tablet */
+@media (max-width: 1024px) {
+  .col-lg-1  { grid-column: span 1; }
+  .col-lg-2  { grid-column: span 2; }
+  .col-lg-3  { grid-column: span 3; }
+  .col-lg-4  { grid-column: span 4; }
+  .col-lg-5  { grid-column: span 5; }
+  .col-lg-6  { grid-column: span 6; }
+  .col-lg-7  { grid-column: span 7; }
+  .col-lg-8  { grid-column: span 8; }
+  .col-lg-9  { grid-column: span 9; }
+  .col-lg-10 { grid-column: span 10; }
+  .col-lg-11 { grid-column: span 11; }
+  .col-lg-12 { grid-column: span 12; }
+}
+
+@media (max-width: 768px) {
+  .col-md-1  { grid-column: span 1; }
+  .col-md-2  { grid-column: span 2; }
+  .col-md-3  { grid-column: span 3; }
+  .col-md-4  { grid-column: span 4; }
+  .col-md-5  { grid-column: span 5; }
+  .col-md-6  { grid-column: span 6; }
+  .col-md-7  { grid-column: span 7; }
+  .col-md-8  { grid-column: span 8; }
+  .col-md-9  { grid-column: span 9; }
+  .col-md-10 { grid-column: span 10; }
+  .col-md-11 { grid-column: span 11; }
+  .col-md-12 { grid-column: span 12; }
+
+  .grid {
+    gap: clamp(12px, 2vw, 20px);
+  }
+}
+
+/* Responsive: Mobile — everything stacks */
+@media (max-width: 480px) {
+  .col-sm-1  { grid-column: span 1; }
+  .col-sm-2  { grid-column: span 2; }
+  .col-sm-3  { grid-column: span 3; }
+  .col-sm-4  { grid-column: span 4; }
+  .col-sm-5  { grid-column: span 5; }
+  .col-sm-6  { grid-column: span 6; }
+  .col-sm-7  { grid-column: span 7; }
+  .col-sm-8  { grid-column: span 8; }
+  .col-sm-9  { grid-column: span 9; }
+  .col-sm-10 { grid-column: span 10; }
+  .col-sm-11 { grid-column: span 11; }
+  .col-sm-12 { grid-column: span 12; }
+
+  /* Default: all columns stack on mobile */
+  .grid > [class*="col-"] {
+    grid-column: span 12;
+  }
+
+  /* Re-apply sm overrides */
+  .col-sm-6 { grid-column: span 6; }
+}
+
+/* --------------------------------------------------------------------------
+   Flex Utilities
+   -------------------------------------------------------------------------- */
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+/* --------------------------------------------------------------------------
+   Gap Utilities
+   -------------------------------------------------------------------------- */
+
+.gap-2xs { gap: var(--space-2xs); }
+.gap-xs  { gap: var(--space-xs); }
+.gap-s   { gap: var(--space-s); }
+.gap-m   { gap: var(--space-m); }
+.gap-l   { gap: var(--space-l); }
+.gap-xl  { gap: var(--space-xl); }
+.gap-2xl { gap: var(--space-2xl); }
+
+/* --------------------------------------------------------------------------
+   Width & Height Utilities
+   -------------------------------------------------------------------------- */
+
+.w-full  { width: 100%; }
+.h-full  { height: 100%; }
+.w-auto  { width: auto; }
+.h-auto  { height: auto; }
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+/* --------------------------------------------------------------------------
+   Positioning
+   -------------------------------------------------------------------------- */
+
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed    { position: fixed; }
+.sticky   { position: sticky; }
+
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Overflow
+   -------------------------------------------------------------------------- */
+
+.overflow-hidden  { overflow: hidden; }
+.overflow-visible { overflow: visible; }
+.overflow-auto    { overflow: auto; }
+
+/* --------------------------------------------------------------------------
+   Display
+   -------------------------------------------------------------------------- */
+
+.block        { display: block; }
+.inline-block { display: inline-block; }
+.inline       { display: inline; }
+.hidden       { display: none; }
+.grid-display { display: grid; }
+
+/* --------------------------------------------------------------------------
+   Z-Index
+   -------------------------------------------------------------------------- */
+
+.z-0  { z-index: 0; }
+.z-1  { z-index: 1; }
+.z-2  { z-index: 2; }
+.z-10 { z-index: 10; }
+
+/* --------------------------------------------------------------------------
+   Margin & Padding Utilities
+   -------------------------------------------------------------------------- */
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mt-xs  { margin-top: var(--space-xs); }
+.mt-s   { margin-top: var(--space-s); }
+.mt-m   { margin-top: var(--space-m); }
+.mt-l   { margin-top: var(--space-l); }
+.mt-xl  { margin-top: var(--space-xl); }
+.mt-2xl { margin-top: var(--space-2xl); }
+
+.mb-xs  { margin-bottom: var(--space-xs); }
+.mb-s   { margin-bottom: var(--space-s); }
+.mb-m   { margin-bottom: var(--space-m); }
+.mb-l   { margin-bottom: var(--space-l); }
+.mb-xl  { margin-bottom: var(--space-xl); }
+
+.pt-xs  { padding-top: var(--space-xs); }
+.pt-s   { padding-top: var(--space-s); }
+.pt-m   { padding-top: var(--space-m); }
+.pt-l   { padding-top: var(--space-l); }
+.pt-xl  { padding-top: var(--space-xl); }
+
+.pb-xs  { padding-bottom: var(--space-xs); }
+.pb-s   { padding-bottom: var(--space-s); }
+.pb-m   { padding-bottom: var(--space-m); }
+.pb-l   { padding-bottom: var(--space-l); }
+.pb-xl  { padding-bottom: var(--space-xl); }
+
+/* --------------------------------------------------------------------------
+   Responsive: Hide/Show
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hide-tablet {
+    display: none !important;
+  }
+}
