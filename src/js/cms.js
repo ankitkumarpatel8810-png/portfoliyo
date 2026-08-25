@@ -723,20 +723,18 @@ function injectContactFormModal(socials, followUps) {
   });
   document.getElementById('cms-contact-close').addEventListener('click', closeForm);
 
-  // Intercept all contact buttons (any link pointing to mailto: or containing Start a Project text)
+  // Direct all email button and email link clicks to Gmail compose in a new tab
+  const gmailComposeUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=frameonstudio8810@gmail.com';
   document.addEventListener('click', (e) => {
     const link = e.target.closest('a[href]');
     if (link) {
-      const href = link.getAttribute('href');
+      const href = link.getAttribute('href') || '';
       const text = link.textContent.trim().toLowerCase();
+      const isEmailLink = href.startsWith('mailto:') || href.includes('mail.google.com') || text.includes('frameonstudio8810@gmail.com');
       
-      const isMailto = href && href.startsWith('mailto:');
-      const isContactText = text.includes('start a project') || text.includes('book a call') || text.includes('discovery call');
-      
-      if (isMailto || isContactText) {
+      if (isEmailLink) {
         e.preventDefault();
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+        window.open(gmailComposeUrl, '_blank', 'noopener,noreferrer');
       }
     }
   });
