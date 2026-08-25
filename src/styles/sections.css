@@ -2116,9 +2116,9 @@
 /* Contact Grid Cards */
 .contact__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  max-width: 860px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1040px;
   margin: 48px auto 0;
   text-align: left;
 }
@@ -2127,7 +2127,7 @@
   background: rgba(15, 15, 15, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
-  padding: 28px;
+  padding: 24px;
   backdrop-filter: blur(12px);
   transition: border-color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
   display: flex;
@@ -2182,7 +2182,7 @@
   text-decoration: none;
   color: #F2F2F0;
   font-family: var(--font-body);
-  font-size: clamp(14px, 1.1vw, 17px);
+  font-size: clamp(14px, 1vw, 16px);
   font-weight: 600;
   transition: color 0.3s ease;
   overflow-wrap: anywhere;
@@ -2212,6 +2212,12 @@
   color: #25D366;
 }
 
+.contact__card-icon--ig {
+  background: rgba(225, 48, 108, 0.1);
+  border-color: rgba(225, 48, 108, 0.25);
+  color: #E1306C;
+}
+
 .contact__card-link:hover .contact__card-icon {
   background: #C8FF00;
   color: #050505;
@@ -2224,33 +2230,17 @@
   border-color: #25D366;
 }
 
-.footer__contact-item {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.contact__card-link--ig:hover .contact__card-icon--ig {
+  background: #E1306C;
+  color: #050505;
+  border-color: #E1306C;
 }
 
-.footer__contact-label {
-  font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--color-accent);
-}
-
-.footer__contact-note {
-  font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: #8A8A8A;
-  margin-top: 2px;
-}
-
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .contact__grid {
     grid-template-columns: 1fr;
     gap: 16px;
+    max-width: 540px;
   }
 }
 

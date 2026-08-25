@@ -21,7 +21,7 @@ const defaultData = {
     address: '',
     socials: {
       twitter: 'https://twitter.com',
-      instagram: 'https://instagram.com',
+      instagram: 'https://www.instagram.com/frameon.motion',
       linkedin: 'https://linkedin.com',
       youtube: 'https://youtube.com'
     }
