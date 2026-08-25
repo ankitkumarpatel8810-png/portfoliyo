@@ -488,6 +488,25 @@
   gap: 20px;
   position: relative;
   overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.hero__visual-card:hover {
+  border-color: rgba(200, 255, 0, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), 0 0 30px rgba(200, 255, 0, 0.12);
+}
+
+.hero__visual-card:hover .hero__visual-play-btn {
+  transform: scale(1.12);
+  box-shadow: 0 0 30px rgba(200, 255, 0, 0.7);
+  background: #DEFF66;
+}
+
+.hero__visual-card:hover .hero__visual-status {
+  color: #C8FF00;
 }
 
 .hero__visual-header {
