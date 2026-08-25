@@ -15,7 +15,8 @@ const defaultData = {
   settings: {
     siteName: 'FRAMEON',
     tagline: 'Beyond the Edit.',
-    email: 'hello@frameon.agency',
+    email: 'frameonstudio8810@gmail.com',
+    whatsapp: '8810556825',
     phone: '',
     address: '',
     socials: {
