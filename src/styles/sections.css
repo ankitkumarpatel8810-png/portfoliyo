@@ -33,13 +33,17 @@
 .preloader__logo {
   position: relative;
   z-index: 1;
-  font-family: var(--font-display);
-  font-size: clamp(24px, 3vw, 40px);
-  font-weight: 800;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--color-text);
-  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preloader__logo-img {
+  height: clamp(44px, 5vw, 76px);
+  width: auto;
+  max-width: 320px;
+  object-fit: contain;
+  display: block;
 }
 
 .preloader__counter {
@@ -109,21 +113,24 @@
 }
 
 .nav__logo {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 18px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--color-text);
   text-decoration: none;
   line-height: 1;
   flex-shrink: 0;
-  transition: color 0.3s var(--ease-smooth);
+  display: inline-flex;
+  align-items: center;
   z-index: 1;
 }
 
-.nav__logo:hover {
-  color: var(--color-accent);
+.nav__logo-img {
+  height: clamp(30px, 3vw, 40px);
+  width: auto;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s var(--ease-smooth);
+}
+
+.nav__logo:hover .nav__logo-img {
+  transform: scale(1.04);
 }
 
 .nav__links {
@@ -2315,16 +2322,41 @@
 }
 
 .footer__logo {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 24px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--color-text);
-  margin-bottom: var(--space-m);
-  line-height: 1;
   text-decoration: none;
+  line-height: 1;
   display: inline-block;
+  margin-bottom: var(--space-s);
+}
+
+.footer__logo-img {
+  height: clamp(38px, 4vw, 52px);
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Large watermark image */
+.footer__watermark {
+  position: absolute;
+  bottom: -5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 900px;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.footer__watermark-img {
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.1;
+  filter: grayscale(0%);
 }
 
 .footer__col p {
