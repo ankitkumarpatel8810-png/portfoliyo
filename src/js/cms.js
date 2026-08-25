@@ -1,6 +1,6 @@
 /**
- * FOUNDERY927 — CMS & Visual Content Integration Engine
- * Bootstraps on client load to replace static content with CMS data.
+ * FRAMEON — Creative Production Agency Integration Engine
+ * Bootstraps on client load to replace static content with agency data.
  */
 
 function escapeHtml(str) {
@@ -10,90 +10,88 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
-// Fallback Default Data (matching seed data schema)
+// Fallback Default Data (FRAMEON Creative Production Agency)
 const defaultData = {
   settings: {
-    siteName: 'FOUNDRY927',
-    tagline: 'Storytelling, Narration & Executive Media Coaching',
-    email: 'foundry927@gmail.com',
-    phone: '+1 (555) 927-0000',
-    address: 'Bangalore, India / New York, NY',
+    siteName: 'FRAMEON',
+    tagline: 'Beyond the Edit.',
+    email: 'hello@frameon.agency',
+    phone: '',
+    address: '',
     socials: {
-      twitter: 'https://twitter.com/foundery927',
-      instagram: 'https://instagram.com/foundery927',
-      linkedin: 'http://in.linkedin.com/in/sunandajayaseelan',
-      dribbble: 'https://dribbble.com/foundery927'
+      twitter: 'https://twitter.com',
+      instagram: 'https://instagram.com',
+      linkedin: 'https://linkedin.com',
+      youtube: 'https://youtube.com'
     }
   },
   pageContent: {
     hero: {
-      heading: 'FOUNDERY927',
-      subheading: 'Storytelling, Narration & Executive Media Coaching by Sunanda Jayaseelan. Over 20 years of television journalism and economic storytelling.',
+      heading: 'WE CREATE CONTENT THAT HOLDS ATTENTION.',
+      subheading: 'FRAMEON helps brands and creators turn ideas into high-quality content through editing, motion, design, and creative direction.',
       image: '',
-      cta1Text: 'View Our Work',
+      cta1Text: 'VIEW OUR WORK',
       cta1Link: '#work',
-      cta2Text: 'Book a Call',
+      cta2Text: 'START A PROJECT',
       cta2Link: '#cta-section'
     },
     featuredInterviews: {
-      heading: 'Featured Work',
-      subheading: 'Exclusive Conversations',
-      paragraph: 'In-depth dialogues where global vision meets editorial precision. High-profile segments broadcasted worldwide.'
+      heading: 'SELECTED WORK',
+      subheading: 'Our Portfolio',
+      paragraph: 'A curated showcase of short-form systems, long-form edits, performance creatives, and brand visual systems.'
     },
     featuredLeaders: {
-      heading: 'Meet the Team',
-      subheading: 'The People',
-      paragraph: 'Broadcast-grade content demands specialized talent. We bring TV-caliber production to corporate storytelling.'
+      heading: 'THE FRAMEON NETWORK',
+      subheading: 'Network',
+      paragraph: 'A curated network of editors, designers, and creative specialists.'
     },
     aboutSection: {
-      heading: "We're not a factory.\nWe forge stories.",
-      subheading: 'Who We Are',
-      paragraph1: 'Hi, I’m Sunanda Jayaseelan. I’ve spent more than 20 years as a television journalist, telling stories that matter — from breaking news moments to features that stay with you long after the camera lights fade.',
-      paragraph2: 'What drives me is simple: connecting with people, making sense of complex issues, and sharing stories that inspire conversation and understanding. Under FOUNDRY927, I bring that same TV-journalist passion to help ambitious brands and leaders articulate their digital stories.',
-      quote: 'Stories are the ultimate currency of connection. Our mission is to ensure every leader\'s voice is heard with complete clarity.',
-      quoteAuthor: '— Sunanda Jayaseelan, Founder'
+      heading: "WE'RE NOT JUST AN EDITING AGENCY.",
+      subheading: 'ABOUT FRAMEON',
+      paragraph1: 'FRAMEON brings together editors, designers, and creative specialists to help brands and creators turn ideas into content that captures attention and creates impact.',
+      paragraph2: '',
+      quote: 'WE BUILD CONTENT PEOPLE REMEMBER.',
+      quoteAuthor: '— FRAMEON Creative Philosophy'
     },
     foundry927Overview: {
-      heading: 'Trusted by leading brands',
+      heading: 'Trusted by leading creators & brands',
       stat1Number: '500',
-      stat1Label: 'Shows Hosted',
-      stat2Number: '1000',
-      stat2Label: 'Interviews Conducted',
-      stat3Number: '20',
-      stat3Label: 'Years Experience',
-      stat4Number: '5',
-      stat4Label: 'Networks Anchored'
+      stat1Label: 'Videos Delivered',
+      stat2Number: '100',
+      stat2Label: 'Views Generated (M+)',
+      stat3Number: '100',
+      stat3Label: 'On-Time Delivery (%)',
+      stat4Number: '50',
+      stat4Label: 'Brands & Creators'
     },
     services: {
       heading: 'Services',
-      subheading: 'What We Do',
-      paragraph: 'Journalistic-grade media strategy, executive mentoring, and end-to-end podcast and documentary curation.'
+      subheading: 'Capabilities',
+      paragraph: 'Core production disciplines tailored to help modern brands and creators dominate visual channels.'
     },
     impact: {
-      heading: 'What They Say',
-      subheading: 'Client Reviews'
+      heading: 'THE FRAMEON STANDARD',
+      subheading: 'Our Commitment'
     },
     awards: {
-      heading: 'Awards',
-      subheading: 'Our work and journalistic excellence have been recognized by leading media guilds and forums.',
+      heading: 'RECOGNITION & MILESTONES',
+      subheading: 'Delivering high-retention content systems trusted by leading digital creators.',
       image: ''
     },
     collaborate: {
-      heading: 'LET\'S BUILD SOMETHING EXTRAORDINARY.',
-      subheading: 'Start a Project'
+      heading: 'READY TO BUILD CONTENT THAT GETS NOTICED?',
+      subheading: 'START A PROJECT'
     },
     footer: {
-      description: 'Storytelling, narration, and executive media coaching for leaders, founders, and global organizations.',
-      copyright: '© 2024 FOUNDERY927. All rights reserved.'
+      description: 'Creative production for brands and creators who care about attention.',
+      copyright: '© 2026 FRAMEON. Beyond the Edit. All rights reserved.'
     }
   },
   awards: [
-    { id: 'award_1', name: 'TV Journalist of the Year', category: 'News & Broadcasting Guild', year: '2024', icon: 'award' },
-    { id: 'award_2', name: 'Best Business & Economy Show', category: 'Television Journalism Awards', year: '2024', icon: 'award' },
-    { id: 'award_3', name: 'Outstanding Economic Documentary', category: 'Media & Documentary Curation', year: '2023', icon: 'award' },
-    { id: 'award_4', name: 'Panel Moderation Excellence', category: 'Leadership Forum Recognition', year: '2023', icon: 'award' },
-    { id: 'award_5', name: 'Prime Time Anchor Award', category: 'National Broadcast Guild', year: '2022', icon: 'award' },
-    { id: 'award_6', name: 'Executive Media Coach of the Year', category: 'Corporate Communications Association', year: '2022', icon: 'award' }
+    { id: 'award_1', name: '100M+ TOTAL VIEWS', category: 'High-Retention Visual Content Systems Delivered', year: '2026', icon: 'award' },
+    { id: 'award_2', name: '99.8% ON-TIME DELIVERY', category: 'Strict Production Milestones & Workflow Standards', year: '2026', icon: 'award' },
+    { id: 'award_3', name: 'CREATIVE REVIEW GUARANTEE', category: 'Multi-Stage Internal Quality Control Process', year: '2025', icon: 'award' },
+    { id: 'award_4', name: 'SPECIALIZED NETWORK', category: 'Dedicated Video Editors, Motion & Thumbnail Designers', year: '2025', icon: 'award' }
   ]
 };
 
@@ -109,19 +107,18 @@ const serviceIconMap = {
 };
 
 export function applyCMSContent() {
-  // 1. Determine Preview Mode
+  // 1. Determine Preview Mode & Clear Stale Legacy Cache
   const isPreview = new URLSearchParams(window.location.search).has('preview');
   const storageKey = isPreview ? 'foundery927_admin' : 'foundery927_published';
   
   let cms = null;
   try {
     const raw = localStorage.getItem(storageKey);
-    cms = raw ? JSON.parse(raw) : null;
-    
-    // Fallback chain
-    if (!cms) {
-      const fallbackRaw = localStorage.getItem(isPreview ? 'foundery927_published' : 'foundery927_admin');
-      cms = fallbackRaw ? JSON.parse(fallbackRaw) : null;
+    if (raw && (raw.includes('Jayaseelan') || raw.includes('FOUNDERY927') || raw.includes('FOUNDRY927') || raw.includes('Sunanda'))) {
+      localStorage.removeItem('foundery927_published');
+      localStorage.removeItem('foundery927_admin');
+    } else if (raw) {
+      cms = JSON.parse(raw);
     }
   } catch (e) {
     // Silent fail
@@ -330,7 +327,7 @@ export function applyCMSContent() {
       } else {
         const aboutData = cms.about || {};
         if (aboutData.founderPhoto) {
-          aboutImgBox.innerHTML = `<img src="${aboutData.founderPhoto}" style="width:100%; height:100%; object-fit: cover; border-radius:12px;" alt="${escapeHtml(aboutData.founderName || 'Sunanda Jayaseelan')}">`;
+          aboutImgBox.innerHTML = `<img src="${aboutData.founderPhoto}" style="width:100%; height:100%; object-fit: cover; border-radius:12px;" alt="${escapeHtml(aboutData.founderName || 'FRAMEON Creative Studio')}">`;
         }
       }
     }

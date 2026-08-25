@@ -7,73 +7,62 @@
 import gsap from 'gsap';
 import { prefersReducedMotion } from './utils.js';
 
-// Fallback seed projects in case localStorage is empty
+// Fallback seed projects for FRAMEON creative portfolio
 const defaultProjects = [
   {
-    id: 'nova',
-    title: 'SIR RICHARD BRANSON',
-    category: 'Exclusive Interview',
-    industry: 'Global Leadership',
-    description: 'An in-depth conversation on global scaling, brand disruption, and venture investment.',
-    challenge: "Conducting a high-impact, live television interview with one of the world's most iconic and spontaneous global entrepreneurs, requiring rigorous research.",
-    strategy: "Structured dynamic editorial prompts shifting between Virgin's expansion strategies, space travel, and early-stage venture mentorship, allowing for spontaneous yet structured insights.",
-    results: { viewCount: '1.2M+', syndication: 'Global', retentionRate: '86%', engagement: 'High' },
-    color: '#E8D5B7'
-  },
-  {
-    id: 'meridian',
-    title: 'NANDAN NILEKANI',
-    category: 'Exclusive Interview',
-    industry: 'Digital Public Goods',
-    description: 'Immersive dialogue about the future of digital identity systems, public goods, and financial technology.',
-    challenge: "Unpacking complex national identity architecture (Aadhaar) and UPI payment systems for a broad global business audience without losing technical accuracy.",
-    strategy: "Frame the technology through its economic impact on financial inclusion, using structured questioning to highlight public-private partnership models.",
-    results: { businessReach: 'Top CXOs', policyImpact: 'High', coverage: 'Prime Time', audience: 'Decision Makers' },
-    color: '#7B93DB'
-  },
-  {
-    id: 'apex',
-    title: 'NARAYANA MURTHY',
-    category: 'Exclusive Interview',
-    industry: 'IT Services & Exports',
-    description: 'A masterclass in software exports, corporate governance, and early-stage venture scale.',
-    challenge: "Eliciting fresh, actionable perspectives on corporate governance and IT scale from a technology pioneer who has been interviewed hundreds of times.",
-    strategy: "Focused on future-looking issues including the ethics of AI, early-stage venture dynamics, and mentoring the next generation of digital founders.",
-    results: { executiveShares: '50k+', mediaQuotes: '24+', rating: 'Top Tier', audience: 'Global Founders' },
+    id: 'personal-brand',
+    title: 'PERSONAL BRAND',
+    category: 'Short-Form Content System',
+    industry: 'Executive & Creator Personal Brands',
+    description: 'High-retention short-form video ecosystem designed to capture attention across Reels, Shorts, and TikTok.',
+    challenge: "Creating a consistent visual identity and fast-paced editing rhythm while maintaining message clarity and brand authority.",
+    strategy: "Engineered a custom motion graphic template system, kinetic captions, precise sound design, and hook-focused framing.",
+    results: { totalViews: '25M+', retentionBoost: '+45%', uploadFrequency: 'Daily', viralReels: '18+' },
     color: '#C8FF00'
   },
   {
-    id: 'lumiere',
-    title: 'JOHN CHAMBERS',
-    category: 'Exclusive Interview',
-    industry: 'Cisco Leadership',
-    description: "Discussing Cisco's rapid scaling, crisis management, and investment strategies.",
-    challenge: "Summarizing decades of tech scaling experience and venture capitalism into a focused, highly engaging segment.",
-    strategy: "Directed the conversation toward transition strategies, managing tech bubbles, and the specific playbooks required for early-stage tech ventures.",
-    results: { views: '800k+', shares: 'Top Startup Labs', relevance: '10/10', engagement: '+420%' },
-    color: '#FFB347'
+    id: 'youtube-creator',
+    title: 'YOUTUBE CREATOR',
+    category: 'Long-Form Editing + Thumbnail',
+    industry: 'Digital Content Creators',
+    description: 'End-to-end long-form YouTube editing combined with click-optimised thumbnail design.',
+    challenge: "Maintaining viewer retention over 15+ minute long-form videos while standing out in competitive YouTube recommendations.",
+    strategy: "Implemented pattern interrupts, custom b-roll pacing, cinematic color grading, and high-CTR visual thumbnail packaging.",
+    results: { avgWatchTime: '11m 40s', ctrIncrease: '+6.8%', totalViews: '15M+', subscribers: '+120k' },
+    color: '#F2F2F0'
   },
   {
-    id: 'vertex',
-    title: 'G20 SUMMITS',
-    category: 'Policy & Global Forums',
-    industry: 'International Affairs',
-    description: 'Exclusive coverage of ministerial summits and international economic collaborations.',
-    challenge: "Translating complex multilateral policy discussions and G20 communiqués into highly engaging business news.",
-    strategy: "Conducting rapid-fire interviews with international ministers and trade delegates, focusing on actionable trade and policy trends.",
-    results: { delegatesInterviewed: '12+', liveHours: '45+', reach: '30+ Countries', status: 'Featured' },
-    color: '#A78BFA'
+    id: 'ecommerce',
+    title: 'E-COMMERCE BRAND',
+    category: 'Performance Creative',
+    industry: 'Direct-to-Consumer Brands',
+    description: 'High-converting video ads and social performance creatives built for paid social campaigns.',
+    challenge: "Developing visual ad creatives that stop scrolling within the first 2 seconds and drive measurable ROAS.",
+    strategy: "Combined hook-testing frameworks, dynamic product callouts, customer reaction cuts, and clear motion CTAs.",
+    results: { roasIncrease: '3.4x', hookRate: '58%', adSpendManaged: '$500k+', conversions: 'High' },
+    color: '#C8FF00'
   },
   {
-    id: 'onyx',
-    title: 'PRIME TIME JOURNALISM',
-    category: 'Media Coverage',
-    industry: 'Television Broadcasting',
-    description: 'Prime time anchoring and economic documentaries exploring global economic shifts.',
-    challenge: "Maintaining peak viewer engagement and journalistic integrity during high-pressure prime-time live news cycles.",
-    strategy: "Combining sharp editorial research with real-time teleprompter agility and executive panel moderation.",
-    results: { yearsActive: '20+', tvBroadcasts: '5,000+', livePanels: '150+', rating: '#1 Anchored Show' },
-    color: '#F0C674'
+    id: 'podcast',
+    title: 'PODCAST',
+    category: 'Content Repurposing',
+    industry: 'Podcasts & Broadcast Shows',
+    description: 'Transforming full-length audio and video podcast episodes into multi-platform content assets.',
+    challenge: "Maximising reach from single podcast episodes across all major digital channels with minimal client effort.",
+    strategy: "Extracted high-impact quotes, generated audiograms, engineered viral short clips, and created promotional thumbnail suites.",
+    results: { assetsPerEpisode: '15+', channelGrowth: '+210%', monthlyReach: '5M+', turnAround: '48 Hours' },
+    color: '#8A8A8A'
+  },
+  {
+    id: 'startup',
+    title: 'STARTUP',
+    category: 'Motion & Brand Visuals',
+    industry: 'Tech & SaaS Startups',
+    description: 'Product demo videos, kinetic motion design, and launch visual packaging for modern startups.',
+    challenge: "Communicating complex technical software features in a sleek, visually engaging 60-second launch video.",
+    strategy: "Designed 3D/2D UI product animations, smooth vector transitions, and high-energy motion typography.",
+    results: { launchViews: '2M+', signupsGenerated: '15k+', featureInclusions: 'Top Tech Media', qualityScore: '10/10' },
+    color: '#C8FF00'
   }
 ];
 
