@@ -1,10 +1,7 @@
 /**
- * FOUNDERY927 — FAQ Accordion
- * Handles accordion expansion with smooth height transitions via GSAP
- * and manages accessibility (aria) states.
+ * FRAMEON — FAQ Accordion
+ * Manages accordion toggle, smooth expansion, and accessibility aria states.
  */
-
-import gsap from 'gsap';
 
 export function initFaq() {
   try {
@@ -16,49 +13,33 @@ export function initFaq() {
     items.forEach((item) => {
       const button = item.querySelector('.faq__question');
       const answer = item.querySelector('.faq__answer');
-      const icon = item.querySelector('.faq__icon');
 
       if (!button || !answer) return;
 
-      button.addEventListener('click', () => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
         const isOpen = item.classList.contains('faq__item--active');
 
-        // Close other items
+        // Close other accordion items
         items.forEach((otherItem) => {
-          if (otherItem !== item && otherItem.classList.contains('faq__item--active')) {
-            const otherButton = otherItem.querySelector('.faq__question');
-            const otherAnswer = otherItem.querySelector('.faq__answer');
-            const otherIcon = otherItem.querySelector('.faq__icon');
-
+          if (otherItem !== item) {
             otherItem.classList.remove('faq__item--active');
-            if (otherButton) otherButton.setAttribute('aria-expanded', 'false');
-            if (otherAnswer) {
-              otherAnswer.setAttribute('aria-hidden', 'true');
-              gsap.to(otherAnswer, { height: 0, duration: 0.35, ease: 'power2.out' });
-            }
-            if (otherIcon) {
-              gsap.to(otherIcon, { rotate: 0, duration: 0.3, ease: 'power2.out' });
-            }
+            const otherBtn = otherItem.querySelector('.faq__question');
+            const otherAns = otherItem.querySelector('.faq__answer');
+            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+            if (otherAns) otherAns.setAttribute('aria-hidden', 'true');
           }
         });
 
-        // Toggle current item
+        // Toggle clicked accordion item
         if (isOpen) {
           item.classList.remove('faq__item--active');
           button.setAttribute('aria-expanded', 'false');
           answer.setAttribute('aria-hidden', 'true');
-          gsap.to(answer, { height: 0, duration: 0.35, ease: 'power2.out' });
-          if (icon) gsap.to(icon, { rotate: 0, duration: 0.3 });
         } else {
           item.classList.add('faq__item--active');
           button.setAttribute('aria-expanded', 'true');
           answer.setAttribute('aria-hidden', 'false');
-          // Animate height to auto
-          gsap.fromTo(answer, 
-            { height: 0 }, 
-            { height: 'auto', duration: 0.45, ease: 'power2.out' }
-          );
-          if (icon) gsap.to(icon, { rotate: 45, duration: 0.3 });
         }
       });
     });

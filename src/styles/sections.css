@@ -2043,27 +2043,31 @@
 .faq__answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s var(--ease-out-expo);
+  opacity: 0;
+  padding: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
 }
 
-.faq__answer-inner {
-  padding: 0 0 var(--space-m) 0;
+.faq__item--active .faq__answer {
+  max-height: 300px;
+  opacity: 1;
+  padding-top: 12px;
+  padding-bottom: 24px;
+}
+
+.faq__answer p {
   font-family: var(--font-body);
-  font-size: var(--text-body-sm);
+  font-size: clamp(14px, 1.05vw, 16px);
   font-weight: 400;
   color: var(--color-text-muted);
-  line-height: 1.7;
-  max-width: 90%;
+  line-height: 1.65;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
   .faq__question {
     font-size: var(--text-body);
     gap: var(--space-s);
-  }
-
-  .faq__answer-inner {
-    max-width: 100%;
   }
 }
 
