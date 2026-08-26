@@ -10,9 +10,11 @@ export function initWork() {
     const workSection = document.getElementById('work');
     if (!workSection) return;
 
-    // Attach case study triggers to project cards
+    // Attach case study triggers to project cards (except direct anchor links)
     const cards = workSection.querySelectorAll('.work__card');
     cards.forEach((card) => {
+      if (card.tagName.toLowerCase() === 'a' && card.hasAttribute('href')) return;
+      
       const projectId = card.dataset.project;
       if (!projectId) return;
 
