@@ -1,11 +1,19 @@
 /**
- * FOUNDERY927 — Cinematic Case Study Modal
- * Dynamically loads project details, handles fullscreen modal reveals
- * with animated clip-path entrance/exit transitions, and populates metrics.
+ * FRAMEON — Cinematic Case Study Modal
+ * Dynamically loads project details, populates hero image covers, and handles fullscreen modal reveals.
  */
 
 import gsap from 'gsap';
 import { prefersReducedMotion } from './utils.js';
+
+// Map project IDs to default cover image paths
+const projectImageMap = {
+  'personal-brand': '/video-editing-cover.jpg',
+  'youtube-creator': '/yt-doc-cover.jpg',
+  'ecommerce': '/brand-creative-spotify.jpg',
+  'podcast': '/reel-cover.jpg',
+  'startup': '/brand-creative-poster.jpg'
+};
 
 // Fallback seed projects for FRAMEON creative portfolio
 const defaultProjects = [
@@ -18,7 +26,7 @@ const defaultProjects = [
     challenge: "Creating a consistent visual identity and fast-paced editing rhythm while maintaining message clarity and brand authority.",
     strategy: "Engineered a custom motion graphic template system, kinetic captions, precise sound design, and hook-focused framing.",
     results: { totalViews: '25M+', retentionBoost: '+45%', uploadFrequency: 'Daily', viralReels: '18+' },
-    color: '#C8FF00'
+    color: '#0A0A0A'
   },
   {
     id: 'youtube-creator',
@@ -29,7 +37,7 @@ const defaultProjects = [
     challenge: "Maintaining viewer retention over 15+ minute long-form videos while standing out in competitive YouTube recommendations.",
     strategy: "Implemented pattern interrupts, custom b-roll pacing, cinematic color grading, and high-CTR visual thumbnail packaging.",
     results: { avgWatchTime: '11m 40s', ctrIncrease: '+6.8%', totalViews: '15M+', subscribers: '+120k' },
-    color: '#F2F2F0'
+    color: '#0A0A0A'
   },
   {
     id: 'ecommerce',
@@ -40,7 +48,7 @@ const defaultProjects = [
     challenge: "Developing visual ad creatives that stop scrolling within the first 2 seconds and drive measurable ROAS.",
     strategy: "Combined hook-testing frameworks, dynamic product callouts, customer reaction cuts, and clear motion CTAs.",
     results: { roasIncrease: '3.4x', hookRate: '58%', adSpendManaged: '$500k+', conversions: 'High' },
-    color: '#C8FF00'
+    color: '#0A0A0A'
   },
   {
     id: 'podcast',
@@ -51,7 +59,7 @@ const defaultProjects = [
     challenge: "Maximising reach from single podcast episodes across all major digital channels with minimal client effort.",
     strategy: "Extracted high-impact quotes, generated audiograms, engineered viral short clips, and created promotional thumbnail suites.",
     results: { assetsPerEpisode: '15+', channelGrowth: '+210%', monthlyReach: '5M+', turnAround: '48 Hours' },
-    color: '#8A8A8A'
+    color: '#0A0A0A'
   },
   {
     id: 'startup',
@@ -62,7 +70,7 @@ const defaultProjects = [
     challenge: "Communicating complex technical software features in a sleek, visually engaging 60-second launch video.",
     strategy: "Designed 3D/2D UI product animations, smooth vector transitions, and high-energy motion typography.",
     results: { launchViews: '2M+', signupsGenerated: '15k+', featureInclusions: 'Top Tech Media', qualityScore: '10/10' },
-    color: '#C8FF00'
+    color: '#0A0A0A'
   }
 ];
 
@@ -88,12 +96,12 @@ export function initCaseStudy() {
   }
 }
 
-export function openCaseStudy(projectId) {
+export function openCaseStudy(projectId, customImageSrc = null) {
   try {
     const modal = document.getElementById('case-study');
     if (!modal) return;
 
-    // Load projects list (attempting localStorage CMS first)
+    // Load projects list
     let projects = defaultProjects;
     try {
       const cmsData = localStorage.getItem('foundery927_admin');
@@ -104,11 +112,10 @@ export function openCaseStudy(projectId) {
         }
       }
     } catch (e) {
-      // JSON parse error or security blocking, fall back to default
+      // Graceful fallback
     }
 
-    const project = projects.find(p => p.id === projectId);
-    if (!project) return;
+    const project = projects.find(p => p.id === projectId) || defaultProjects[0];
 
     // Populate Fields
     const titleEl = modal.querySelector('.case-study__title');
@@ -118,6 +125,7 @@ export function openCaseStudy(projectId) {
     const strategyEl = modal.querySelector('.case-study__strategy');
     const metricsEl = modal.querySelector('.case-study__metrics');
     const heroEl = modal.querySelector('.case-study__hero');
+    const heroImgEl = modal.querySelector('.case-study__hero-img');
 
     if (titleEl) titleEl.textContent = project.title;
     if (categoryEl) categoryEl.textContent = `${project.category} · ${project.industry || 'Selected Work'}`;
@@ -125,9 +133,14 @@ export function openCaseStudy(projectId) {
     if (challengeEl) challengeEl.textContent = project.challenge || 'Details coming soon.';
     if (strategyEl) strategyEl.textContent = project.strategy || 'Strategy details coming soon.';
 
-    // Color theme on case study hero background
+    // Populate Hero Image Cover
+    if (heroImgEl) {
+      const coverSrc = customImageSrc || projectImageMap[projectId] || '/reel-cover.jpg';
+      heroImgEl.src = coverSrc;
+    }
+
     if (heroEl) {
-      heroEl.style.backgroundColor = project.color || 'var(--color-bg-elevated)';
+      heroEl.style.backgroundColor = '#0A0A0A';
     }
 
     // Populate metrics
@@ -163,7 +176,6 @@ export function openCaseStudy(projectId) {
         }
       );
       
-      // Animate modal content elements coming in
       const contentEl = modal.querySelector('.case-study__content');
       if (contentEl) {
         gsap.fromTo(contentEl.children,
@@ -182,7 +194,6 @@ export function openCaseStudy(projectId) {
       modal.style.display = 'block';
     }
 
-    // Trigger cursor / magnetics rebind
     document.dispatchEvent(new CustomEvent('contentUpdated'));
 
   } catch (err) {

@@ -20,7 +20,8 @@ export function initWork() {
 
       card.addEventListener('click', (e) => {
         e.preventDefault();
-        openCaseStudy(projectId);
+        const cardImg = card.querySelector('.work__card-cover-img')?.getAttribute('src');
+        openCaseStudy(projectId, cardImg);
       });
     });
 
