@@ -1050,6 +1050,7 @@
   flex-direction: column;
   text-decoration: none;
   color: inherit;
+  min-height: 380px;
 }
 
 .work__card:hover {
