@@ -237,7 +237,7 @@ export function applyCMSContent() {
     }
   }
 
-  // 7. Inject Work Grid (Featured Interviews + YouTube Videos)
+  // 7. Inject Work Section Headers
   const workSection = document.getElementById('work');
   if (workSection && pageContent.featuredInterviews) {
     const workCfg = pageContent.featuredInterviews;
@@ -248,55 +248,6 @@ export function applyCMSContent() {
     if (tag && workCfg.subheading) tag.textContent = workCfg.subheading;
     if (title && workCfg.heading) title.textContent = workCfg.heading;
     if (sub && workCfg.paragraph) sub.textContent = workCfg.paragraph;
-
-    // Merge regular projects and published videos
-    const activeProjects = cms.projects || [];
-    const activeVideos = (cms.videos || []).filter(v => v.published !== false);
-    const grid = workSection.querySelector('.work__grid');
-
-    if (grid) {
-      grid.innerHTML = '';
-      
-      // Render projects
-      activeProjects.forEach(proj => {
-        const item = document.createElement('div');
-        item.className = 'work__card reveal-up';
-        item.dataset.project = proj.id;
-        item.innerHTML = `
-          <div class="work__card-image" style="background-color: ${proj.color || '#E8D5B7'};" aria-label="${escapeHtml(proj.title)} project preview"></div>
-          <div class="work__card-overlay"></div>
-          <div class="work__card-info">
-            <h3 class="work__card-title">${escapeHtml(proj.title)}</h3>
-            <span class="work__card-category">${escapeHtml(proj.category)} · ${escapeHtml(proj.industry || 'Leadership')}</span>
-          </div>
-          <button class="work__card-arrow" aria-label="View ${escapeHtml(proj.title)} case study">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-          </button>
-        `;
-        grid.appendChild(item);
-      });
-
-      // Render videos
-      activeVideos.forEach(vid => {
-        const ytId = getYouTubeId(vid.url) || '';
-        const thumbUrl = ytId ? `https://img.youtube.com/vi/${ytId}/hqdefault.jpg` : '';
-        const item = document.createElement('div');
-        item.className = 'work__card reveal-up';
-        item.dataset.videoUrl = vid.url;
-        item.innerHTML = `
-          <div class="work__card-image" style="background-image: url('${thumbUrl}'); background-size: cover; background-position: center;" aria-label="${escapeHtml(vid.title)} video preview"></div>
-          <div class="work__card-overlay"></div>
-          <div class="work__card-info">
-            <h3 class="work__card-title">${escapeHtml(vid.title)}</h3>
-            <span class="work__card-category">${escapeHtml(vid.category || 'Exclusive Interview')} · Video Curation</span>
-          </div>
-          <button class="work__card-arrow" aria-label="Play video">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(45deg);"><polygon points="5 3 19 12 5 21 5 3" fill="currentColor"/></svg>
-          </button>
-        `;
-        grid.appendChild(item);
-      });
-    }
   }
 
   // 8. Inject About Section & Founder Photo
