@@ -1196,35 +1196,6 @@
   padding-bottom: 4px;
 }
 
-.work__card-image--repurpose1, .work__card-image--repurpose2 {
-  background: linear-gradient(135deg, rgba(200, 255, 0, 0.05) 0%, rgba(15, 15, 15, 0.95) 100%);
-}
-
-.work__card-graphic-repurpose {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.repurpose-box {
-  font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 700;
-  padding: 6px 12px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.08);
-  color: #8A8A8A;
-}
-
-.repurpose-box--accent {
-  background: rgba(200, 255, 0, 0.12);
-  color: #C8FF00;
-  border: 1px solid rgba(200, 255, 0, 0.3);
-}
-
-.repurpose-arrow {
-  color: #C8FF00;
-}
 
 .work__card-image--web1, .work__card-image--web2 {
   background: radial-gradient(circle at 50% 50%, rgba(200, 255, 0, 0.12) 0%, rgba(5, 5, 5, 0.95) 80%);
