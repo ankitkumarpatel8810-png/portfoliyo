@@ -899,7 +899,11 @@
 .work-section {
   background-color: #050505;
   padding-top: var(--space-2xl);
-  padding-bottom: var(--space-2xl);
+  padding-bottom: clamp(30px, 3.5vw, 50px);
+}
+
+#services {
+  padding-top: clamp(40px, 4vw, 60px);
 }
 
 .work__header {
@@ -984,6 +988,10 @@
 .work__category-block {
   margin-bottom: 72px;
   scroll-margin-top: 160px;
+}
+
+.work__category-block:last-of-type {
+  margin-bottom: 0;
 }
 
 .work__category-header {
